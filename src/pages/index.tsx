@@ -1,13 +1,34 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { Montserrat } from '@next/font/google';
+
+import MovieLayout from '@/layouts/MovieLayout';
+
+import { getPopularApi } from '@/utils/api';
+import { MovieType } from '@/interface';
+
+interface Props {
+  data: MovieType[];
+}
 
 const montserrat = Montserrat({
   weight: ['400', '700'],
   subsets: ['latin'],
 });
 
-export default function Home() {
+export const getStaticProps = async () => {
+  try {
+    const res = await getPopularApi();
+    const data = await res.json();
+
+    return {
+      props: { data: data.results },
+    };
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const Home: React.FC<Props> = ({ data }) => {
   return (
     <>
       <Head>
@@ -16,7 +37,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${montserrat.className}`}>ewqewqewqkjekowqkeopqwkeop</main>
+      <main className={`${montserrat.className} mx-32 my-12`}>
+        <MovieLayout movieList={data} />
+      </main>
     </>
   );
-}
+};
+
+export default Home;
