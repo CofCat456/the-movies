@@ -70,7 +70,9 @@ const MovieDetail: React.FC<Props> = ({ data }) => {
           alt={data.title}
           priority
         />
-        <p>{data.overview}</p>
+        <div className="my-4">
+          <p className="text-lg">{data.overview}</p>
+        </div>
       </div>
     </>
   );

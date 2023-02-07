@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 });
 
 export const Layout: React.FC<Props> = ({ children }) => {
-  return <main className={`${montserrat.className} mx-32 my-12`}>{children}</main>;
+  return <main className={`${montserrat.className} xl:m-32 md:m-16 m-8`}>{children}</main>;
 };
 
 export default Layout;

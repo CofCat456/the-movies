@@ -1,3 +1,7 @@
+export enum Lang {
+  ZH = 'zh',
+}
+
 export type MovieType = {
   adult: boolean;
   backdrop_path: string;

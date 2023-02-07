@@ -11,7 +11,7 @@ interface Props {
 
 export const getStaticProps = async () => {
   try {
-    const res = await getPopularApi();
+    const res = await getPopularApi('zh');
     const data = await res.json();
 
     return {
