@@ -59,7 +59,7 @@ const MovieDetail: React.FC<Props> = ({ data }) => {
         <h2 className="text-2xl">{data.title}</h2>
         <h2 className="text-lg">{data.release_date}</h2>
         <h2>Runtime: {data.runtime} minutes</h2>
-        <h2 className="text-sm bg-green-600 inline-block my-2 py-2 px-4 rounded-md">
+        <h2 className="my-2 inline-block rounded-md bg-green-600 py-2 px-4 text-sm">
           {data.status}
         </h2>
         <Image
